@@ -1,0 +1,13 @@
+[Unit]
+Description=activefolder
+After=network.target
+
+[Service]
+WorkingDirectory=/var/lib/pgsql/gisgraphy/
+ExecStart=/var/lib/pgsql/gisgraphy/restart.sh
+ExecStop=/var/lib/pgsql/gisgraphy/force-stop.sh
+Type=forking
+PIDFile=/var/lib/pgsql/gisgraphy/run/gisgraphy.pid
+
+[Install]
+WantedBy=default.target
